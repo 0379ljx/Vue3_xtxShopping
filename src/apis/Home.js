@@ -6,3 +6,9 @@ import httpInstance from '@/utils/http'
       url: '/home/banner'
     })
 }
+//封装组件数据接口
+export const findNewAPI = () => {
+  return httpInstance({
+    url:'/home/new'
+  })
+}
