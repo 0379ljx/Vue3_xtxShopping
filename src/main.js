@@ -2,6 +2,8 @@
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+// 全局指令注册
+
 
 import App from './App.vue'
 import router from './router'
@@ -21,3 +23,8 @@ app.use(createPinia())
 app.use(router)
 
 app.mount('#app')
+
+//引入懒加载组件并注册
+// 全局指令注册
+import {lazyPlugin } from '@/directives/index.js'
+app.use(lazyPlugin)
