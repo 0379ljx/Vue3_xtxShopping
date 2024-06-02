@@ -19,7 +19,7 @@ import '@/styles/common.scss'
 // // )
 // )
 const app = createApp(App)
-
+app.use(componentPlugin)
 app.use(createPinia())
 app.use(router)
 const pinia =createPinia()

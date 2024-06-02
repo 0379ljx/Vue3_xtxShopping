@@ -95,7 +95,7 @@ const skuChange = (sku) => {
                 </dl>
               </div>
               <!-- sku组件 -->
-                <XtxStu :goods="goods" @change="skuChange"></XtxStu>
+                <XtxSku :goods="goods" @change="skuChange"></XtxSku>
               <!-- 数据组件 -->
 
               <!-- 按钮组件 -->
