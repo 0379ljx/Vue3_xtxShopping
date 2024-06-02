@@ -28,3 +28,7 @@ app.mount('#app')
 // 全局指令注册
 import {lazyPlugin } from '@/directives/index.js'
 app.use(lazyPlugin)
+
+// 引入全局组件插件
+import { componentPlugin } from '@/components'
+app.use(componentPlugin)
