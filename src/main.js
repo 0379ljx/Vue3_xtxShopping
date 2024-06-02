@@ -2,6 +2,7 @@
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 // 全局指令注册
 
 
@@ -21,7 +22,9 @@ const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
-
+const pinia =createPinia()
+pinia.use(piniaPluginPersistedstate)
+app.use(pinia)
 app.mount('#app')
 
 //引入懒加载组件并注册
