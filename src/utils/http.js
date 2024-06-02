@@ -1,5 +1,7 @@
 import axios from 'axios'
-import {useUserStore } from '@/stores/user'
+import { useUserStore } from '@/stores/user'
+import { ElMessage } from 'element-plus'
+import router from '@/router'
 // 创建axios实例
 const httpInstance = axios.create({
   baseURL: 'http://pcapi-xiaotuxian-front-devtest.itheima.net',
@@ -21,6 +23,16 @@ httpInstance.interceptors.request.use(config => {
 
 // axios响应式拦截器
 httpInstance.interceptors.response.use(res => res.data, e => {
+  const userStore = useUserStore()
+   // 统一错误提示
+   ElMessage({
+    type: 'warning',
+    message: e.response.data.message
+  })
+  if(e.response.status ===401){
+    userStore.clearUserInfo()
+    router.push('/login')
+  }
   return Promise.reject(e)
 })
 
