@@ -36,6 +36,12 @@ const singleCheck = (skuId, selected) => {
   const item = cartList.value.find((item) => item.skuId === skuId)
   item.selected = selected
 }
+
+// 全选功能action
+const allCheck = (selected) => {
+  // 把cartList中的每一项的selected都设置为当前的全选框状态
+  cartList.value.forEach(item => item.selected = selected)
+}
    // 计算属性
   // 1. 总的数量 所有项的count之和
   const allCount = computed(() => cartList.value.reduce((a, c) => a + c.count, 0))
@@ -58,7 +64,8 @@ const singleCheck = (skuId, selected) => {
     selectedCount,
     selectedPrice,
     isAll,
-    singleCheck
+    singleCheck,
+    allCheck
     
   }
 }, {
